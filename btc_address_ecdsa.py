@@ -3,7 +3,10 @@ import ecdsa, binascii, hashlib, base58
 
 #generate private key
 priv_key = ecdsa.SigningKey.generate(curve=ecdsa.SECP256k1)
-print("Private key: ", priv_key.to_string().hex())
+vk = priv_key.to_pem()
+print("Private key")
+print("Binary : ", priv_key.to_string())
+print("Hex : ", priv_key.to_string().hex())
 
 #calculate public key
 pub_key = '04' + priv_key.get_verifying_key().to_string().hex()
